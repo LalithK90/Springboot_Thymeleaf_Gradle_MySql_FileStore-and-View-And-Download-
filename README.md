@@ -5,4 +5,7 @@ This example was included entity create_time and update_time automatically manag
 Thymeleaf and spring boot file upload to MySql and Download or View in HTML page using Thymeleaf Template Engine.
 
 Thanks 
+
 Happy Coding
+
+:satisfied::blue_heart:
