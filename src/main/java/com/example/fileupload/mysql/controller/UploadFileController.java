@@ -51,7 +51,12 @@ public class UploadFileController {
                     // update new contents
                     fileModel.setPic(file.getBytes());
                 } else {
-                    fileModel = new FileModel(file.getOriginalFilename(), file.getContentType(), file.getBytes());
+//                    fileModel = new FileModel(file.getOriginalFilename(), file.getContentType(), file.getBytes());
+                    fileModel = new FileModel();
+                    fileModel.setName(file.getOriginalFilename());
+                    fileModel.setMimetype(file.getContentType());
+                    fileModel.setPic(file.getBytes());
+
                 }
 
                 fileNames.add(file.getOriginalFilename());

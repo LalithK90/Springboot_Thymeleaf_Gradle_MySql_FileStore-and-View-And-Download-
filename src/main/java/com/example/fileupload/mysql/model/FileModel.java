@@ -2,6 +2,8 @@ package com.example.fileupload.mysql.model;
 
 
 
+import lombok.*;
+
 import javax.persistence.*;
 import java.util.Arrays;
 import java.util.Objects;
@@ -17,23 +19,25 @@ import java.util.Objects;
  */
 @Entity
 @Table(name = "file_model")
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
+@EqualsAndHashCode( callSuper = true )
 public class FileModel extends DateAudit {
     @Id
-    @GeneratedValue
-    @Column(name = "id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "name")
     private String name;
 
-    @Column(name = "mimetype")
     private String mimetype;
 
     @Lob
     @Column(name = "pic")
     private byte[] pic;
 
-    public FileModel() {
+   /* public FileModel() {
     }
 
     public FileModel(String name, String mimetype, byte[] pic) {
@@ -91,5 +95,5 @@ public class FileModel extends DateAudit {
         int result = Objects.hash(super.hashCode(), getId(), getName(), getMimetype());
         result = 31 * result + Arrays.hashCode(getPic());
         return result;
-    }
+    }*/
 }

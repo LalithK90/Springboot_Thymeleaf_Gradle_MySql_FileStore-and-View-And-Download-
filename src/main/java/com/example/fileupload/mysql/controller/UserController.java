@@ -12,7 +12,8 @@ public class UserController {
 
     @GetMapping( "/user" )
     public String  save() {
-        User sample = new User("Asanka");
+        User sample = new User();
+        sample.setName("Asanka");
         userRepository.save(sample);
         return "save";
     }

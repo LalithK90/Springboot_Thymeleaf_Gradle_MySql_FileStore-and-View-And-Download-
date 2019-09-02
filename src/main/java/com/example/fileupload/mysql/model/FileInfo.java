@@ -1,6 +1,8 @@
 package com.example.fileupload.mysql.model;
 
 
+import lombok.*;
+
 import java.util.Objects;
 
 /**
@@ -12,11 +14,15 @@ import java.util.Objects;
  * Date: 22/11/18
  * Time: 06.16
  */
-
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
+@EqualsAndHashCode
 public class FileInfo {
     private String filename;
     private String url;
-
+/*
     @Override
     public boolean equals(Object o) {
         if ( this == o ) return true;
@@ -50,5 +56,5 @@ public class FileInfo {
     public FileInfo(String filename, String url) {
         this.filename = filename;
         this.url = url;
-    }
+    }*/
 }

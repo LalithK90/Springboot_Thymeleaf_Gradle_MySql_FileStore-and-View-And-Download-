@@ -1,6 +1,7 @@
 package com.example.fileupload.mysql.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import lombok.*;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
@@ -27,7 +28,11 @@ import java.util.Objects;
         value = {"createdAt", "updatedAt"},
         allowGetters = true
 )
-
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
+@EqualsAndHashCode
 public abstract class DateAudit {
 
     @CreatedDate
@@ -37,7 +42,7 @@ public abstract class DateAudit {
     @LastModifiedDate
     @Column(nullable = false)
     private Instant updatedAt;
-
+/*
     public Instant getCreatedAt() {
         return createdAt;
     }
@@ -66,5 +71,5 @@ public abstract class DateAudit {
     @Override
     public int hashCode() {
         return Objects.hash(getCreatedAt(), getUpdatedAt());
-    }
+    }*/
 }

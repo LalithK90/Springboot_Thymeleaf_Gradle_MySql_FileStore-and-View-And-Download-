@@ -33,17 +33,23 @@ public class DownloadFileController {
     /*
      * Retrieve Files' Information
      */
-    @GetMapping("/files")
+    @GetMapping( "/files" )
     public String getListFiles(Model model) {
-        List< FileInfo > fileInfos = fileRepository.findAll().stream().map(
-                fileModel -> {
-                    String filename = fileModel.getName();
-                    String url = MvcUriComponentsBuilder.fromMethodName(DownloadFileController.class,
-                                                                        "downloadFile", fileModel.getName()).build().toString();
-                    return new FileInfo(filename, url);
-                }
-                                                                          )
-                .collect(Collectors.toList());
+        List< FileInfo > fileInfos =
+                fileRepository
+                        .findAll()
+                        .stream()
+                        .map(fileModel -> {
+                                    String filename = fileModel.getName();
+                                    String url = MvcUriComponentsBuilder
+                                            .fromMethodName(DownloadFileController.class,
+                                                           "downloadFile", fileModel.getName())
+                                            .build()
+                                            .toString();
+                                    return new FileInfo(filename, url);
+                                }
+                            )
+                        .collect(Collectors.toList());
 
         model.addAttribute("files", fileInfos);
         return "listfiles";
@@ -52,8 +58,8 @@ public class DownloadFileController {
     /*
      * Download Files
      */
-    @GetMapping("/files/{filename}")
-    public ResponseEntity<byte[]> downloadFile(@PathVariable String filename) {
+    @GetMapping( "/files/{filename}" )
+    public ResponseEntity< byte[] > downloadFile(@PathVariable String filename) {
         FileModel file = fileRepository.findByName(filename);
         return ResponseEntity.ok()
                 .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + file.getName() + "\"")

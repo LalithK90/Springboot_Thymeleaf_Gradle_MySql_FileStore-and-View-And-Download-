@@ -1,10 +1,18 @@
 package com.example.fileupload.mysql.model;
 
+import lombok.*;
+import org.springframework.stereotype.Service;
+
 import javax.persistence.*;
 import java.util.Objects;
 
 
 @Entity
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
+@EqualsAndHashCode( callSuper = true )
 public class User extends DateAudit{
     @Id
     @GeneratedValue( strategy = GenerationType.IDENTITY )
@@ -14,7 +22,7 @@ public class User extends DateAudit{
     @Column(name = "name")
     private String name;
 
-    public User() {
+   /* public User() {
     }
 
     public User(String name) {
@@ -50,5 +58,5 @@ public class User extends DateAudit{
     @Override
     public int hashCode() {
         return Objects.hash(super.hashCode(), getId(), getName());
-    }
+    }*/
 }
