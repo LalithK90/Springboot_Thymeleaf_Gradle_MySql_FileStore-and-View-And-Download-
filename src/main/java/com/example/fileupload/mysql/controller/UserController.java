@@ -1,6 +1,7 @@
 package com.example.fileupload.mysql.controller;
 
-import com.example.fileupload.mysql.model.User;
+
+import com.example.fileupload.mysql.general.security.entity.User;
 import com.example.fileupload.mysql.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -13,7 +14,7 @@ public class UserController {
     @GetMapping( "/user" )
     public String  save() {
         User sample = new User();
-        sample.setName("Asanka");
+        sample.setUsername("Asanka");
         userRepository.save(sample);
         return "save";
     }
@@ -21,7 +22,7 @@ public class UserController {
     @GetMapping( "/user1" )
     public String  update() {
         User sample = userRepository.getOne((long) 1);
-        sample.setName("Lalith");
+        sample.setUsername("Lalith");
         userRepository.save(sample);
         return "save";
     }

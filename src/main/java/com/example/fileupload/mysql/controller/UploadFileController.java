@@ -1,7 +1,6 @@
 package com.example.fileupload.mysql.controller;
 
 import com.example.fileupload.mysql.model.FileModel;
-import com.example.fileupload.mysql.model.User;
 import com.example.fileupload.mysql.repository.FileRepository;
 import com.example.fileupload.mysql.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,16 +30,17 @@ public class UploadFileController {
    FileRepository fileRepository;
 
 
-    @GetMapping( "/" )
+    @GetMapping( "/file" )
     public String index() {
         return "uploadform";
     }
 
 
 
-    @PostMapping( "/" )
+    @PostMapping( "/file" )
     public String uploadMultipartFile(@RequestParam( "files" ) MultipartFile[] files, Model model) {
         List< String > fileNames = new ArrayList< String >();
+        System.out.println(files.length);
 
         try {
             List< FileModel > storedFile = new ArrayList< FileModel >();
@@ -51,11 +51,7 @@ public class UploadFileController {
                     // update new contents
                     fileModel.setPic(file.getBytes());
                 } else {
-//                    fileModel = new FileModel(file.getOriginalFilename(), file.getContentType(), file.getBytes());
-                    fileModel = new FileModel();
-                    fileModel.setName(file.getOriginalFilename());
-                    fileModel.setMimetype(file.getContentType());
-                    fileModel.setPic(file.getBytes());
+                   fileModel = new FileModel(file.getOriginalFilename(), file.getContentType(), file.getBytes());
 
                 }
 

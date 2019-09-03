@@ -34,17 +34,17 @@ public class FileModel extends DateAudit {
     private String mimetype;
 
     @Lob
-    @Column(name = "pic")
     private byte[] pic;
-
-   /* public FileModel() {
-    }
 
     public FileModel(String name, String mimetype, byte[] pic) {
         this.name = name;
         this.mimetype = mimetype;
         this.pic = pic;
     }
+   /* public FileModel() {
+    }
+
+   
 
     public Long getId() {
         return id;

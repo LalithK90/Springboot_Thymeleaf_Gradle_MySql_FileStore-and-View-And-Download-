@@ -1,3 +1,4 @@
+/*
 package com.example.fileupload.mysql.model;
 
 import lombok.*;
@@ -22,7 +23,8 @@ public class User extends DateAudit{
     @Column(name = "name")
     private String name;
 
-   /* public User() {
+   */
+/* public User() {
     }
 
     public User(String name) {
@@ -58,5 +60,7 @@ public class User extends DateAudit{
     @Override
     public int hashCode() {
         return Objects.hash(super.hashCode(), getId(), getName());
-    }*/
+    }*//*
+
 }
+*/
